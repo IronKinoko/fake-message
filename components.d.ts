@@ -8,7 +8,7 @@ declare module '@vue/runtime-core' {
     QQAvatar: typeof import('./src/components/QQAvatar.vue')['default']
     QQEditor: typeof import('./src/components/QQEditor.vue')['default']
     QQMessage: typeof import('./src/components/QQMessage.vue')['default']
-    QQMsg: typeof import('./src/components/QQMsg.vue')['default']
+    QQUserEditor: typeof import('./src/components/QQUserEditor.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

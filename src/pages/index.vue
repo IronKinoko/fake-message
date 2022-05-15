@@ -1,26 +1,35 @@
 <script setup lang="ts">
-import { Message } from '@/components/QQMessage.vue'
+import { useMessageStore } from '@/stores/messages'
+import { useUserStore } from '@/stores/user'
 
-let messages = $ref<Message[]>([
-  { user: { qq: '707819027', name: '【理树子】XND' }, content: '示例消息' },
-  { user: { qq: '707819027', name: '【理树子】XND' }, content: '示例消息' },
-  { user: { qq: '707819027', name: '【理树子】XND' }, content: '示例消息' },
-  { user: { qq: '707819027', name: '【理树子】XND' }, content: '示例消息' },
-])
+const { users, activeUser } = $(useUserStore())
+
+const $list = $ref<HTMLDivElement>()
+
+const { messages, addMessage } = $(useMessageStore())
+
+function submit(content: string) {
+  if (!activeUser) {
+    return alert('请在左下角选择或添加一个用户')
+  }
+  addMessage(activeUser, content)
+  nextTick(() => {
+    $list.scrollTo(0, $list.scrollHeight)
+  })
+}
 </script>
 
 <template>
-  <div class="container mx-auto p-4">
-    <div class="shadow-lg p-4 bg-white rounded">
+  <div class="flex flex-col w-full h-full">
+    <div ref="$list" class="p-4 bg-white rounded flex-1 overflow-auto">
       <QQMessage
         v-for="(message, index) in messages"
         :key="index"
         :="message"
       />
     </div>
-    <br />
-    <div class="shadow-lg p-6 bg-white rounded">
-      <QQEditor />
+    <div class="p-6 bg-white rounded border-t">
+      <QQEditor @send="submit" :users="users" />
     </div>
   </div>
 </template>

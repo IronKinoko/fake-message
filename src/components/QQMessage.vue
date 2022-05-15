@@ -2,12 +2,12 @@
 export interface User {
   qq: string
   name: string
+  longName?: string
 }
 export interface Message {
   user: User
   content: string
 }
-
 
 const { user, content } = defineProps<Message>()
 </script>
@@ -16,7 +16,7 @@ const { user, content } = defineProps<Message>()
     <div class="w-8 h-8 translate-y-1">
       <QQAvatar :qq="user.qq"></QQAvatar>
     </div>
-    <div>
+    <div class="flex-1 min-w-0">
       <div type="text" class="text-[#7F7F7F] text-sm outline-none">
         {{ user.name }}
       </div>
@@ -29,7 +29,7 @@ const { user, content } = defineProps<Message>()
 
 <style scoped>
 .message-bubble {
-  @apply bg-[#E5E5E5] rounded-md py-2 px-3 relative w-fit whitespace-pre-wrap max-w-md;
+  @apply bg-[#E5E5E5] rounded-md py-2 px-3 relative w-fit whitespace-pre-wrap max-w-full break-words;
 }
 .message-bubble:before {
   content: '';
