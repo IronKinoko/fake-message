@@ -1,0 +1,20 @@
+<script setup lang="ts">
+const { type } = defineProps<{ type: string }>()
+</script>
+
+<template>
+  <svg class="icon" aria-hidden="true">
+    <use :xlink:href="`#icon-${type}`"></use>
+  </svg>
+</template>
+
+<style scoped>
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+</style>

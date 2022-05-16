@@ -2,14 +2,14 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 
 export interface User {
   qq: string
+  title?: string
   name: string
-  longName?: string
 }
 
 export const useUserStore = defineStore('user', () => {
   let users = $(
     useLocalStorage<User[]>('users', [
-      { qq: '707819027', name: '【理树子】XND' },
+      { qq: '707819027', name: 'XND', title: '理树子' },
     ])
   )
 

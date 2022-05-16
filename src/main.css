@@ -17,10 +17,12 @@ body {
   background: #121212;
 } */
 
-.btn {
-  @apply bg-[#00B6CC] hover:bg-[#3EDEFB] active:bg-[#06BCE9] text-white
-   rounded py-1 px-2 text-center select-none cursor-pointer;
-}
-.btn.btn-round {
-  @apply rounded-full p-0 flex justify-center items-center;
+@layer components {
+  .btn {
+    @apply bg-[#00B6CC] hover:bg-[#3EDEFB] active:bg-[#06BCE9] text-white
+     rounded py-1 px-2 text-center select-none cursor-pointer;
+  }
+  .btn.btn-round {
+    @apply rounded-full p-0 flex justify-center items-center;
+  }
 }

@@ -34,8 +34,8 @@ function submit(e?: KeyboardEvent) {
     <div class="flex justify-between items-center">
       <div class="flex gap-1">
         <div
-          class="w-8 h-8 flex justify-center items-center rounded-full"
-          :class="user.qq === activeQQ ? 'border-2 border-[#00B6CC]' : ''"
+          class="w-8 h-8 flex justify-center items-center rounded-full cursor-pointer hover:border-2 hover:border-[#00B6CC]"
+          :class="user.qq === activeQQ ? 'border-2 border-[#00B6CC] !cursor-default' : ''"
           v-for="user in users"
           :key="user.qq"
           @click="setActiveUser(user.qq)"
@@ -46,23 +46,8 @@ function submit(e?: KeyboardEvent) {
         </div>
         <div class="w-8 h-8 flex justify-center items-center">
           <RouterLink to="/users">
-            <div
-              class="w-6 h-6 btn btn-round text-xs"
-            >
-              <svg
-                viewBox="0 0 1024 1024"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                p-id="1879"
-                width="1em"
-                height="1em"
-              >
-                <path
-                  d="M576 64H448v384H64v128h384v384h128V576h384V448H576z"
-                  fill="currentColor"
-                  p-id="1880"
-                ></path>
-              </svg>
+            <div class="w-6 h-6 btn btn-round text-xs">
+              <Icon type="plus" />
             </div>
           </RouterLink>
         </div>
