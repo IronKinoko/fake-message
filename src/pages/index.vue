@@ -2,7 +2,7 @@
 import { useMessageStore } from '@/stores/messages'
 import { useUserStore } from '@/stores/user'
 
-const { users, activeUser } = $(useUserStore())
+const { activeUser } = $(useUserStore())
 
 const $list = $ref<HTMLDivElement>()
 
@@ -31,7 +31,7 @@ function submit(content: string) {
       />
     </div>
     <div class="p-4 sm:p-6 bg-white rounded border-t">
-      <QQEditor @send="submit" :users="users" />
+      <QQEditor @send="submit" />
     </div>
   </div>
 </template>
